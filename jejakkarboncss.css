@@ -1,0 +1,91 @@
+h1{
+  font-family: "Poppins", sans-serif;
+  font-weight: 1000;
+  font-style: normal;
+  text-align: center;
+}
+h2{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+label{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3{
+    font-family: "Poppins", sans-serif;
+    font-weight: 450;
+    font-style: normal;
+    line-height: 1em;
+}
+h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.infodiri{
+  background-color: #ededed;
+    padding: 35px;
+    border-radius: 15px; /* Ini dia si rounded-nya! */
+    margin-bottom: 30px;
+    border: 1px solid #c0c0c0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
+/* (x-offset: 0px) (y-offset: 8px) (blur: 16px) (spread: 0px) (warna: hitam 20%) */
+ /* PROPERTI PENTING: Untuk 'menjalankan' elemen ::before */
+    position: relative; 
+    /* PROPERTI PENTING: Untuk memotong garis kilauan agar sudutnya mengikuti border-radius */
+    overflow: hidden; 
+    /* === BAGIAN BARU: MEMBUAT GERAKAN JADI HALUS === */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    /* Artinya: Semua perubahan transform dan box-shadow akan berlangsung 0.3 detik dengan efek transisi halus (ease-in-out) */
+    /* === BAGIAN BARU: SHADOW STANDAR (Saat tidak di-hover) === */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* 2. ELEMEN VIRTUAL (Garis Kilauan) */
+.infodiri::before {
+    content: ''; /* Wajib ada untuk menampilkan pseudo-element */
+    position: absolute; /* Wajib agar bisa melayang di atas kotak */
+    
+    /* === PENGATURAN POSISI DI SUDUT KIRI ATAS === */
+    top: 0; 
+    left: 0;
+    
+    /* === PENGATURAN BENTUK GARIS === */
+    width: 100%; /* Garis selebar 100% kotak */
+    height: 3px; /* <--- Dipertebal menjadi 5px */
+    
+    /* === EFEK KILAUAN (GRADIENT PUTIH) === */
+    background: linear-gradient(
+        90deg, 
+        rgba(255, 255, 255, 0.0) 0%,   /* Mulai dari transparan */
+        rgba(255, 255, 255, 1) 35%,  /* <--- Titik paling putih dan terang (0.9) */
+        rgba(255, 255, 255, 1) 65%,  /* <--- Menahan kilauan di tengah (0.9) */
+        rgba(255, 255, 255, 0.0) 100% /* Kembali ke transparan */
+    );
+    z-index: 10; /* Agar garis selalu berada di lapisan paling atas */
+}
+.infodiri:hover{
+  /* MEMBESARKAN KOTAK 3% (agak membesar) */
+    transform: scale(1.03); 
+    /* MEMPERKUAT SHADOW agar terlihat terangkat dari halaman */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    /* Penting: Kursor berubah menjadi tangan, menandakan bisa diklik/interaktif */
+    cursor: pointer;
+}
+
+:placeholder-shown{
+font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
